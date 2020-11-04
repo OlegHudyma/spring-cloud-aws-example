@@ -13,3 +13,12 @@ templates:
     subject: "We will miss you!"
     from: oleg_hudyma@epam.com
     template: bye-bye-template.html
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
