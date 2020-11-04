@@ -15,7 +15,7 @@ public class ProfileListener {
 
   private final CommunicationService communicationService;
 
-  @SqsListener("test")
+  @SqsListener("profiles")
   public void processProfile(Message message) throws MessagingException {
     log.info("Message {} received", message.getCorrelationId());
 
