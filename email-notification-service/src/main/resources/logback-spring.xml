@@ -1,0 +1,23 @@
+<configuration>
+
+  <property name="encoderPattern"
+    value="%d{yy-MM-dd E HH:mm:ss.SSS} %-5p --- [%X{correlationId}] [%15.15t] [%X{X-B3-TraceId:-}, %X{X-B3-SpanId:-}] %c{2}.%M - %m%n"/>
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>${encoderPattern}</pattern>
+    </encoder>
+  </appender>
+
+  <root level="INFO">
+    <appender-ref ref="STDOUT"/>
+  </root>
+
+  <springProfile name="local">
+    <logger name="com.training" level="DEBUG"/>
+  </springProfile>
+
+  <springProfile name="!local">
+    <logger name="com.training" level="INFO"/>
+  </springProfile>
+</configuration>

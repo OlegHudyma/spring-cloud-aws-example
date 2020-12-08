@@ -1,5 +1,5 @@
 HELP.md
-target/
+**/target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
@@ -14,20 +14,25 @@ target/
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea
+*.idea
 *.iws
 *.iml
 *.ipr
 
 ### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
+**/nbproject/private/
+**/nbbuild/
+**/dist/
+**/nbdist/
+**/.nb-gradle/
+**/build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+### Terraform ###
+**/.terraform/
+**/terraform.tfstate
+**/terraform.tfstate.backup
+
 ### VS Code ###
-.vscode/
+**/.vscode/
