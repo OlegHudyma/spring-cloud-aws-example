@@ -5,7 +5,7 @@ import com.training.aws.profile.exceptions.ProfileNotFoundException;
 import com.training.aws.profile.model.Profile;
 import com.training.aws.profile.model.constants.Event;
 import com.training.aws.profile.repository.ProfileRepository;
-import com.training.aws.profile.service.MessagingService;
+import com.training.aws.profile.service.NotificationService;
 import com.training.aws.profile.service.ProfileService;
 import java.util.List;
 import java.util.Optional;
@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class ProfileServiceImpl implements ProfileService {
 
-  private final MessagingService messagingService;
+  private final NotificationService notificationService;
   private final ProfileRepository profileRepository;
 
   @Override
@@ -62,7 +62,7 @@ public class ProfileServiceImpl implements ProfileService {
       String identifier = profileRepository.save(profile);
       log.info("Profile has been stored");
 
-      messagingService.publish(profile, Event.CREATED);
+      notificationService.publish(profile, Event.CREATED);
 
       return identifier;
     } else {
@@ -81,6 +81,6 @@ public class ProfileServiceImpl implements ProfileService {
     profileRepository.delete(profile);
     log.info("Profile has been deleted");
 
-    messagingService.publish(profile, Event.DELETED);
+    notificationService.publish(profile, Event.DELETED);
   }
 }

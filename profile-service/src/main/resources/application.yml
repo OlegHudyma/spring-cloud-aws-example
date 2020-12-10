@@ -4,7 +4,7 @@ cloud:
       auto: false
 
 messaging:
-  queue: profiles
+  topic: profiles
 
 management:
   endpoints:

@@ -9,5 +9,5 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "messaging")
 public class MessagingProperties {
 
-  private String queue;
+  private String topic;
 }
