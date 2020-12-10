@@ -16,7 +16,8 @@ data "aws_iam_policy_document" "profile-service-policy-document" {
   statement {
     effect = "Allow"
     actions = [
-      "sqs:SendMessage",
+      "sns:Publish",
+      "sns:ListTopics",
       "dynamodb:BatchGetItem",
       "dynamodb:PutItem",
       "dynamodb:DeleteItem",
@@ -26,7 +27,8 @@ data "aws_iam_policy_document" "profile-service-policy-document" {
       "dynamodb:UpdateItem"]
 
     resources = [
-      "*"]
+      aws_dynamodb_table.profiles-db.arn,
+      aws_sns_topic.profiles-topic.arn]
   }
 }
 
