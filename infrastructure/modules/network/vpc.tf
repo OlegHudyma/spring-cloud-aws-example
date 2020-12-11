@@ -25,11 +25,3 @@ resource "aws_default_route_table" "vpc-internet-route" {
     gateway_id = aws_internet_gateway.vpc-internet-gateway.id
   }
 }
-
-output "vpc_id" {
-  value = aws_vpc.vpc.id
-}
-
-output "vpc_cidr" {
-  value = aws_vpc.vpc.cidr_block
-}
