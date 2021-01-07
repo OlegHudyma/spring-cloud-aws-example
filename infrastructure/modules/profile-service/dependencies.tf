@@ -1,3 +1,0 @@
-module "vpc" {
-  source = "../network"
-}
